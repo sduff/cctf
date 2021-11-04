@@ -116,7 +116,7 @@ output "cluster_dev_http_endpoint" {
 }
 
 #
-# Service Accounts
+# Management Service Accounts
 #
 
 # Production Service Account
@@ -153,5 +153,15 @@ resource "confluentcloud_service_account" "sa-dev" {
 }
 output "sa_dev_id" {
    value = confluentcloud_service_account.sa-dev.id
+}
+
+#
+# Custom Service Accounts
+#
+
+# Client Waldo Service Account
+resource "confluentcloud_service_account" "sa-client-test" {
+     display_name = "sa-client-test"
+     description = "Test Client Service Account"
 }
 
